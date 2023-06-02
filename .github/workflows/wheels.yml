@@ -1,9 +1,9 @@
 name: Build
 
-# on:
-#   push:
-#     branches:    
-#       - main
+on:
+  push:
+    branches:    
+      - main
 #   pull_request:
 #   schedule:
 #     - cron: '35 5 * * *'
@@ -61,7 +61,7 @@ jobs:
       matrix:
         os: [ "macOS-12" ]
         python_build_version: [ "cp38", "cp39", "cp310", "cp311" ]
-        package: [ "grpcio", "grpcio-tools", "grpcio-reflection", "grpcio-health-checking" ]
+        package: [ "grpcio", "grpcio-tools" ]
 
     needs: [check_release]
     if: needs.check_release.outputs.should_build == '1'
